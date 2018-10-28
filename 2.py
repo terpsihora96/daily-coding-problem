@@ -2,7 +2,7 @@ from functools import reduce
 # from copy import deepcopy
 
 def main():
-    input_ = [1, 2, 3, 4, 5]
+    input_ = [1, -2, -3, -4, 5]
     length = len(input_)
     product = reduce((lambda x, y: x * y), input_)
     output = []
@@ -10,11 +10,16 @@ def main():
     # without using division
     for i in range (0, length):
         count = 0
-        product1 = product
+        sign = 1
+        product1 = abs(product)
+        if input_[i] < 0:
+            input_[i] = abs(input_[i])
+            sign = -1
+        
         while product1:
             count += 1
             product1 -= input_[i]
-        output.append(count)
+        output.append(count * sign)
 
     """
     for i in range (0, length):
