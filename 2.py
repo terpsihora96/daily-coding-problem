@@ -2,13 +2,13 @@ from functools import reduce
 # from copy import deepcopy
 
 def main():
-    input_ = [1, -2, -3, -4, 5]
+    input_ = [1, -2.6, -3, -4, 5]
     length = len(input_)
     product = reduce((lambda x, y: x * y), input_)
     output = []
     
     # without using division
-    for i in range (0, length):
+    for i in range (length):
         count = 0
         sign = 1
         product1 = abs(product)
@@ -22,14 +22,14 @@ def main():
         output.append(count * sign)
 
     """
-    for i in range (0, length):
+    for i in range (length):
         input_1 = deepcopy(input_)
         input_1.pop(i)
         output.append(reduce((lambda x, y: x * y), input_1)) 
     """
 
     """
-    for i in range (0, length):
+    for i in range (length):
         output.append(product // input_[i]) 
     """
     print(output)
